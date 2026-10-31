@@ -1,0 +1,123 @@
+package tb;
+
+import com.explorestack.protobuf.adcom.Placement;
+import ga.f;
+import io.bidmachine.AdContentType;
+import io.bidmachine.AdFormat;
+import io.bidmachine.AdPlacementConfig;
+import io.bidmachine.AdRequest;
+import io.bidmachine.CustomParams;
+import io.bidmachine.FullScreenAdRequest;
+import io.bidmachine.FullScreenAdRequestParameters;
+import io.bidmachine.NetworkConfig;
+import io.bidmachine.PriceFloorParams;
+import io.bidmachine.SessionAdParams;
+import io.bidmachine.TargetingParams;
+import java.util.List;
+
+/* JADX INFO: compiled from: RewardedRequest.java */
+/* JADX INFO: loaded from: classes5.dex */
+public final class c extends FullScreenAdRequest<c> {
+
+    /* JADX INFO: compiled from: RewardedRequest.java */
+    public static final class b extends FullScreenAdRequest.FullScreenRequestBuilder<b, c> {
+        @Deprecated(since = "3.5.0")
+        public b() {
+            this(AdPlacementConfig.rewardedBuilder().build());
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // io.bidmachine.AdRequest.AdRequestBuilderImpl
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public c build(FullScreenAdRequestParameters fullScreenAdRequestParameters) {
+            return new c(fullScreenAdRequestParameters);
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // io.bidmachine.AdRequest.AdRequestBuilderImpl
+        /* JADX INFO: renamed from: b, reason: merged with bridge method [inline-methods] */
+        public FullScreenAdRequestParameters createAdRequestParameters() {
+            return new tb.b(this.adPlacementConfig);
+        }
+
+        @Override // io.bidmachine.AdRequest.AdRequestBuilderImpl
+        public /* bridge */ /* synthetic */ AdRequest build() {
+            return super.build();
+        }
+
+        @Override // io.bidmachine.FullScreenAdRequest.FullScreenRequestBuilder
+        @Deprecated(since = "3.5.0")
+        /* JADX INFO: renamed from: c, reason: merged with bridge method [inline-methods] */
+        public b setAdContentType(AdContentType adContentType) {
+            this.adPlacementConfig = this.adPlacementConfig.newBuilder(AdFormat.createRewarded(adContentType)).build();
+            return this;
+        }
+
+        @Override // io.bidmachine.AdRequest.AdRequestBuilderImpl
+        public /* bridge */ /* synthetic */ f setBidPayload(String str) {
+            return super.setBidPayload(str);
+        }
+
+        @Override // io.bidmachine.AdRequest.AdRequestBuilderImpl
+        @Deprecated(since = "3.5.0")
+        public /* bridge */ /* synthetic */ f setCustomParams(CustomParams customParams) {
+            return super.setCustomParams(customParams);
+        }
+
+        @Override // io.bidmachine.AdRequest.AdRequestBuilderImpl
+        public /* bridge */ /* synthetic */ f setListener(AdRequest.AdRequestListener adRequestListener) {
+            return super.setListener(adRequestListener);
+        }
+
+        @Override // io.bidmachine.AdRequest.AdRequestBuilderImpl
+        public /* bridge */ /* synthetic */ f setLoadingTimeOut(Integer num) {
+            return super.setLoadingTimeOut(num);
+        }
+
+        @Override // io.bidmachine.AdRequest.AdRequestBuilderImpl
+        public /* bridge */ /* synthetic */ f setNetworks(String str) {
+            return super.setNetworks(str);
+        }
+
+        @Override // io.bidmachine.AdRequest.AdRequestBuilderImpl
+        @Deprecated(since = "3.5.0")
+        public /* bridge */ /* synthetic */ f setPlacementId(String str) {
+            return super.setPlacementId(str);
+        }
+
+        @Override // io.bidmachine.AdRequest.AdRequestBuilderImpl
+        public /* bridge */ /* synthetic */ f setPriceFloorParams(PriceFloorParams priceFloorParams) {
+            return super.setPriceFloorParams(priceFloorParams);
+        }
+
+        @Override // io.bidmachine.AdRequest.AdRequestBuilderImpl
+        @Deprecated
+        public /* bridge */ /* synthetic */ f setSessionAdParams(SessionAdParams sessionAdParams) {
+            return super.setSessionAdParams(sessionAdParams);
+        }
+
+        @Override // io.bidmachine.AdRequest.AdRequestBuilderImpl
+        public /* bridge */ /* synthetic */ f setTargetingParams(TargetingParams targetingParams) {
+            return super.setTargetingParams(targetingParams);
+        }
+
+        public b(AdPlacementConfig adPlacementConfig) {
+            super(adPlacementConfig);
+        }
+
+        @Override // io.bidmachine.AdRequest.AdRequestBuilderImpl
+        public /* bridge */ /* synthetic */ f setNetworks(List list) {
+            return super.setNetworks((List<NetworkConfig>) list);
+        }
+    }
+
+    @Override // io.bidmachine.AdRequest
+    protected void onBuildPlacement(Placement.Builder builder) {
+        super.onBuildPlacement(builder);
+        builder.setReward(true);
+    }
+
+    private c(FullScreenAdRequestParameters fullScreenAdRequestParameters) {
+        super(fullScreenAdRequestParameters);
+    }
+}

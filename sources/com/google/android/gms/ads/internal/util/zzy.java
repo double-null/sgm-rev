@@ -1,0 +1,16 @@
+package com.google.android.gms.ads.internal.util;
+
+import android.content.Context;
+import com.google.android.gms.internal.ads.zzbiq;
+
+/* JADX INFO: compiled from: com.google.android.gms:play-services-ads@@25.2.0 */
+/* JADX INFO: loaded from: classes3.dex */
+public final class zzy extends zzx {
+    @Override // com.google.android.gms.ads.internal.util.zzz
+    public final int zzm(Context context) {
+        if (((Boolean) com.google.android.gms.ads.internal.client.zzba.zzc().zzd(zzbiq.zzjT)).booleanValue()) {
+            return 0;
+        }
+        return super.zzm(context);
+    }
+}

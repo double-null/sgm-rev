@@ -1,0 +1,162 @@
+package com.google.android.gms.ads.nonagon.devicetier;
+
+import android.content.Context;
+import com.android.billingclient.gp.VRfCTjjLv;
+import com.applovin.sdk.AppLovinMediationProvider;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
+
+/* JADX INFO: compiled from: com.google.android.gms:play-services-ads@@25.2.0 */
+/* JADX INFO: loaded from: classes3.dex */
+public class DeviceTierManager {
+    private final Context zza;
+    private final AtomicBoolean zzb = new AtomicBoolean(false);
+    private final AtomicReference zzc = new AtomicReference(AdvertisedMemoryTier.UNKNOWN);
+    private final AtomicReference zzd = new AtomicReference(AvailableMemoryTier.UNKNOWN);
+    private final AtomicReference zze = new AtomicReference(AvailableProcessorTier.UNKNOWN);
+
+    /* JADX INFO: compiled from: com.google.android.gms:play-services-ads@@25.2.0 */
+    public enum AdvertisedMemoryTier {
+        UNKNOWN(0),
+        INVALID_DATA_SOURCE(1),
+        EXTREME_LOW(2),
+        VERY_LOW(3),
+        LOW(4),
+        MID(5),
+        MID_PLUS(6),
+        HIGH(7),
+        VERY_HIGH(8),
+        EXTREME_HIGH(9);
+
+        private final int zza;
+
+        AdvertisedMemoryTier(int i10) {
+            this.zza = i10;
+        }
+
+        public static AdvertisedMemoryTier fromValue(int i10) {
+            for (AdvertisedMemoryTier advertisedMemoryTier : values()) {
+                if (advertisedMemoryTier.zza == i10) {
+                    return advertisedMemoryTier;
+                }
+            }
+            return null;
+        }
+
+        public int getValue() {
+            return this.zza;
+        }
+    }
+
+    /* JADX INFO: compiled from: com.google.android.gms:play-services-ads@@25.2.0 */
+    public enum AvailableMemoryTier {
+        UNKNOWN(0),
+        INVALID_DATA_SOURCE(1),
+        EXTREME_LOW(2),
+        VERY_LOW(3),
+        LOW(4),
+        MID(5),
+        MID_PLUS(6),
+        HIGH(7),
+        VERY_HIGH(8),
+        EXTREME_HIGH(9);
+
+        private final int zza;
+
+        AvailableMemoryTier(int i10) {
+            this.zza = i10;
+        }
+
+        public static AvailableMemoryTier fromValue(int i10) {
+            for (AvailableMemoryTier availableMemoryTier : values()) {
+                if (availableMemoryTier.zza == i10) {
+                    return availableMemoryTier;
+                }
+            }
+            return null;
+        }
+
+        public int getValue() {
+            return this.zza;
+        }
+    }
+
+    /* JADX INFO: compiled from: com.google.android.gms:play-services-ads@@25.2.0 */
+    public enum AvailableProcessorTier {
+        UNKNOWN(0),
+        INVALID_DATA_SOURCE(1),
+        EXTREME_LOW(2),
+        LOW(3),
+        MID(4),
+        MID_PLUS(5),
+        HIGH(6),
+        EXTREME_HIGH(7);
+
+        private final int zza;
+
+        AvailableProcessorTier(int i10) {
+            this.zza = i10;
+        }
+
+        public static AvailableProcessorTier fromValue(int i10) {
+            for (AvailableProcessorTier availableProcessorTier : values()) {
+                if (availableProcessorTier.zza == i10) {
+                    return availableProcessorTier;
+                }
+            }
+            return null;
+        }
+
+        public int getValue() {
+            return this.zza;
+        }
+    }
+
+    DeviceTierManager(Context context) {
+        this.zza = context;
+    }
+
+    public AdvertisedMemoryTier getAdvertisedMemoryTier() {
+        return (AdvertisedMemoryTier) this.zzc.get();
+    }
+
+    public AvailableMemoryTier getAvailableMemoryTier() {
+        return (AvailableMemoryTier) this.zzd.get();
+    }
+
+    public AvailableProcessorTier getAvailableProcessorTier() {
+        return (AvailableProcessorTier) this.zze.get();
+    }
+
+    public void initialize() {
+        AtomicBoolean atomicBoolean = this.zzb;
+        if (atomicBoolean.get()) {
+            return;
+        }
+        AdvertisedMemoryTier advertisedMemoryTierFromValue = AdvertisedMemoryTier.fromValue(this.zza.getSharedPreferences(AppLovinMediationProvider.ADMOB, 0).getInt("advertised_memory_tier", AdvertisedMemoryTier.UNKNOWN.getValue()));
+        if (advertisedMemoryTierFromValue != null) {
+            this.zzc.set(advertisedMemoryTierFromValue);
+        }
+        atomicBoolean.set(true);
+    }
+
+    public synchronized void setAdvertisedMemoryTier(AdvertisedMemoryTier advertisedMemoryTier) {
+        if (advertisedMemoryTier == null) {
+            return;
+        }
+        this.zzc.set(advertisedMemoryTier);
+        this.zza.getSharedPreferences(VRfCTjjLv.ysoRVDkpcTcG, 0).edit().putInt("advertised_memory_tier", advertisedMemoryTier.getValue()).apply();
+    }
+
+    public void setAvailableMemoryTier(AvailableMemoryTier availableMemoryTier) {
+        if (availableMemoryTier != null) {
+            this.zzd.set(availableMemoryTier);
+        }
+    }
+
+    public void setAvailableProcessorTier(AvailableProcessorTier availableProcessorTier) {
+        if (availableProcessorTier != null) {
+            this.zze.set(availableProcessorTier);
+        }
+    }
+}

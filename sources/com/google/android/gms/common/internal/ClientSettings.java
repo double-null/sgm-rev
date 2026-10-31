@@ -1,0 +1,165 @@
+package com.google.android.gms.common.internal;
+
+import android.accounts.Account;
+import android.content.Context;
+import android.view.View;
+import androidx.collection.b;
+import com.google.android.gms.common.api.Api;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.signin.SignInOptions;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+/* JADX INFO: compiled from: com.google.android.gms:play-services-base@@18.10.1 */
+/* JADX INFO: loaded from: classes3.dex */
+public final class ClientSettings {
+    private final Account zaa;
+    private final Set zab;
+    private final Set zac;
+    private final Map zad;
+    private final int zae;
+    private final View zaf;
+    private final String zag;
+    private final String zah;
+    private final SignInOptions zai;
+    private Integer zaj;
+
+    /* JADX INFO: compiled from: com.google.android.gms:play-services-base@@18.10.1 */
+    public static final class Builder {
+        private Account zaa;
+        private b zab;
+        private String zac;
+        private String zad;
+        private final SignInOptions zae = SignInOptions.zaa;
+
+        public ClientSettings build() {
+            return new ClientSettings(this.zaa, this.zab, null, 0, null, this.zac, this.zad, this.zae, false);
+        }
+
+        public Builder setRealClientPackageName(String str) {
+            this.zac = str;
+            return this;
+        }
+
+        public final Builder zaa(Account account) {
+            this.zaa = account;
+            return this;
+        }
+
+        public final Builder zab(Collection collection) {
+            if (this.zab == null) {
+                this.zab = new b();
+            }
+            this.zab.addAll(collection);
+            return this;
+        }
+
+        public final Builder zac(String str) {
+            this.zad = str;
+            return this;
+        }
+    }
+
+    public ClientSettings(Account account, Set<Scope> set, Map<Api<?>, zae> map, int i10, View view, String str, String str2, SignInOptions signInOptions) {
+        this(account, set, map, i10, view, str, str2, signInOptions, false);
+    }
+
+    public static ClientSettings createDefault(Context context) {
+        return new GoogleApiClient.Builder(context).zaa();
+    }
+
+    public Account getAccount() {
+        return this.zaa;
+    }
+
+    @Deprecated
+    public String getAccountName() {
+        Account account = this.zaa;
+        if (account != null) {
+            return account.name;
+        }
+        return null;
+    }
+
+    public Account getAccountOrDefault() {
+        Account account = this.zaa;
+        return account != null ? account : new Account("<<default account>>", "com.google");
+    }
+
+    public Set<Scope> getAllRequestedScopes() {
+        return this.zac;
+    }
+
+    public Set<Scope> getApplicableScopes(Api<?> api) {
+        zae zaeVar = (zae) this.zad.get(api);
+        if (zaeVar != null) {
+            Set set = zaeVar.zaa;
+            if (!set.isEmpty()) {
+                HashSet hashSet = new HashSet(this.zab);
+                hashSet.addAll(set);
+                return hashSet;
+            }
+        }
+        return this.zab;
+    }
+
+    public int getGravityForPopups() {
+        return this.zae;
+    }
+
+    public String getRealClientPackageName() {
+        return this.zag;
+    }
+
+    public Set<Scope> getRequiredScopes() {
+        return this.zab;
+    }
+
+    public View getViewForPopups() {
+        return this.zaf;
+    }
+
+    public final Map zaa() {
+        return this.zad;
+    }
+
+    public final String zab() {
+        return this.zah;
+    }
+
+    public final SignInOptions zac() {
+        return this.zai;
+    }
+
+    public final Integer zad() {
+        return this.zaj;
+    }
+
+    public final void zae(Integer num) {
+        this.zaj = num;
+    }
+
+    public ClientSettings(Account account, Set set, Map map, int i10, View view, String str, String str2, SignInOptions signInOptions, boolean z10) {
+        this.zaa = account;
+        Set setEmptySet = set == null ? Collections.emptySet() : Collections.unmodifiableSet(set);
+        this.zab = setEmptySet;
+        map = map == null ? Collections.emptyMap() : map;
+        this.zad = map;
+        this.zaf = view;
+        this.zae = i10;
+        this.zag = str;
+        this.zah = str2;
+        this.zai = signInOptions == null ? SignInOptions.zaa : signInOptions;
+        HashSet hashSet = new HashSet(setEmptySet);
+        Iterator it = map.values().iterator();
+        while (it.hasNext()) {
+            hashSet.addAll(((zae) it.next()).zaa);
+        }
+        this.zac = Collections.unmodifiableSet(hashSet);
+    }
+}

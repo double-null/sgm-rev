@@ -1,0 +1,24 @@
+package com.google.android.gms.internal.ads;
+
+import android.os.IBinder;
+import android.os.IInterface;
+import g7.EinF.ZHgPsTG;
+
+/* JADX INFO: compiled from: com.google.android.gms:play-services-ads-api@@25.2.0 */
+/* JADX INFO: loaded from: classes3.dex */
+final /* synthetic */ class zzblj implements com.google.android.gms.ads.internal.util.client.zzq {
+    static final /* synthetic */ zzblj zza = new zzblj();
+
+    private /* synthetic */ zzblj() {
+    }
+
+    @Override // com.google.android.gms.ads.internal.util.client.zzq
+    public final /* synthetic */ Object zza(Object obj) {
+        IBinder iBinder = (IBinder) obj;
+        if (iBinder == null) {
+            return null;
+        }
+        IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface(ZHgPsTG.iIAwqWbuPCjWx);
+        return iInterfaceQueryLocalInterface instanceof zzbll ? (zzbll) iInterfaceQueryLocalInterface : new zzbll(iBinder);
+    }
+}

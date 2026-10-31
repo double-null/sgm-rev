@@ -1,0 +1,51 @@
+package com.android.billingclient.gp;
+
+/* JADX INFO: loaded from: classes2.dex */
+public class VRfCTjjLv {
+    public static String DiVHWsDuNeT;
+    public static String FCt;
+    public static String FXkNym;
+    public static String HLJxlGx;
+    public static String HVcUCHpBTvhK;
+    public static String KAYhFesIpGHdvP;
+    public static String MxmEZESMUJujdU;
+    public static String NHia;
+    public static String ORXD;
+    public static String OhdYng;
+    public static String OpOCf;
+    public static String SDPKJdEk;
+    public static String SSxesGctnLGYZL;
+    public static String TTgVyW;
+    public static String UYAJbNoCHQe;
+    public static String WHE;
+    public static String WOsL;
+    public static String WVyI;
+    public static String Xbc;
+    public static String YsNIjfAUf;
+    public static String ZJKGMQmmpblQA;
+    public static String avoeeSUuwNLo;
+    public static String biKAqVuHeLIff;
+    public static String bpPZXGpE;
+    public static String bxGaP;
+    public static String cpL;
+    public static String dTzThsS;
+    public static String eer;
+    public static String fhRpeADbPa;
+    public static String fkA;
+    public static String ibqgco;
+    public static String jRQMPWvNDihY;
+    public static String jqiulkFNpec;
+    public static String kvJIronEyxtk;
+    public static String lfrrqSsT;
+    public static String lqvXVz;
+    public static String pHlZDWDF;
+    public static String pnuwkwQZx;
+    public static String qNLXFOhzDfaXom;
+    public static String rAuyDzsXN;
+    public static String siFATTn;
+    public static String vmpfEwDun;
+    public static String xROcGrCuWchn;
+    public static String yOwKikeqFIqOW;
+    public static String ysoRVDkpcTcG;
+    public static String zRhKRkUFhPLNA;
+}
