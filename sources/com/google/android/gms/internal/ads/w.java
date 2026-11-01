@@ -1,9 +1,0 @@
-package com.google.android.gms.internal.ads;
-
-/* JADX INFO: compiled from: R8$$SyntheticClass */
-/* JADX INFO: loaded from: classes3.dex */
-public final /* synthetic */ class w {
-    public static /* synthetic */ int a(byte b10) {
-        return b10 & 255;
-    }
-}

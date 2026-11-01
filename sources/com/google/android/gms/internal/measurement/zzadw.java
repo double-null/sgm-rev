@@ -1,9 +1,0 @@
-package com.google.android.gms.internal.measurement;
-
-/* JADX INFO: compiled from: com.google.android.gms:play-services-measurement-base@@23.2.0 */
-/* JADX INFO: loaded from: classes3.dex */
-public interface zzadw extends zzaef {
-    @Override // 
-    /* JADX INFO: renamed from: zzd, reason: merged with bridge method [inline-methods] */
-    zzadw zzg(int i10);
-}
